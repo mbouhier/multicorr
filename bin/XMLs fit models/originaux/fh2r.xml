@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> fh2r </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\fh2r.dat</path>
+		</model>
+	</exp_models>
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>200-800</xlim>
+		<components>
+			<component>
+				<name> ligne de base </name>
+				<parameters> </parameters>
+				<equation>(x inf 873.8).*(2438.81 + -0.596031 * (x)) + (x sup=873.8).*(1552.72 + 0.418035 * (x))</equation>
+			</component>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>	
+						519.482*exp(-log(2)*(((x)-1446.67)./55.4129).^2)+301.492*exp(-log(2)*(((x)-1171.42)./78.7851).^2)+133.038*exp(-log(2)*(((x)-1048.08)./6.55574).^2)+797.099*exp(-log(2)*(((x)-723.3)./23.8782).^2)+2697.52*exp(-log(2)*(((x)-692.269)./59.1357).^2)+922.722*exp(-log(2)*(((x)-534.913)./69.1483).^2)+909.316*exp(-log(2)*(((x)-362.462)./91.6879).^2)+96.0328*exp(-log(2)*(((x)-164.456)./20.928).^2)+1010.27*exp(-log(2)*(((x)-1343.86)./82.8644).^2)+109.344*exp(-log(2)*(((x)-1591.09)./5.92659).^2)
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

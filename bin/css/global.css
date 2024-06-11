@@ -1,0 +1,53 @@
+QTabWidget::pane {
+  background-color: qlineargradient(spread:pad, x1:0.5, y1:0.7, x2:0.5, y2:1, stop:0 rgba(255, 255, 255,255), stop:1 rgba(237, 239, 242, 255)); 
+  border: 1px solid rgba(182, 186, 191, 255);
+  top: -1px;
+}
+
+QTabBar::tab
+{
+background-color: rgba(255, 255, 255, 0);
+padding-left:15px;
+padding-right:15px;
+padding-top:3px;
+padding-bottom:3px;
+border-top-right-radius:4px;
+border-top-left-radius:4px;
+}
+
+QLabel[accessibleName="subLabel_1"]{
+color:rgba(255, 0, 0, 0);
+}
+
+QTabBar::tab:selected
+{
+background-color: rgba(255, 255, 255, 255);
+border: 1px solid rgba(182, 186, 191, 255);
+margin-bottom: 0px;
+border-bottom: 1px solid rgba(255, 255, 255, 255);
+}
+
+QTabBar
+{
+
+}
+
+QPushButton {
+
+}
+
+QLabel
+{
+    /*font-family: Sacramento;*/
+/*font-size:22px;*/
+}
+
+
+#centralwidget{ 
+
+}
+
+QFrame[frameShape="5"]{
+background-color:rgba(237, 239, 242, 255);
+}
+

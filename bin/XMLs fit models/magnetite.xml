@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> magnetite </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\magnetite.dat</path>
+		</model>
+	</exp_models>
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>0-1000</xlim>
+		<components>
+			<component>
+				<name> ligne de base </name>
+				<parameters> </parameters>
+				<equation>(x inf 674.7).*(658.979 + -0.136409 * (x)) + (x sup= 674.7).*(229.596 + 0.235698 * (x))</equation>
+			</component>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>
+					937.913./(1+(((x)-539.551)./26.7921).^2)+607.337./(1+(((x)-309.509)./55.8155).^2)+300.477*exp(-log(2)*(((x)-452.133)./56.6143).^2)+ (x inf 667.891).*(5290.45./(1+(((x)-667.891)./18.1886).^2)) + (x sup= 667.891).*(5290.45./(1+(((x)-667.891)./23.3392).^2))+225.572*exp(-log(2)*(((x)-714.753)./18.252).^2)+136.208*exp(-log(2)*(((x)-624.883)./43.9569).^2)+160.062*exp(-log(2)*(((x)-306.634)./11.4583).^2)+220.425*exp(-log(2)*(((x)-129.931)./-23.8796).^2)+173.35*exp(-log(2)*(((x)-185.275)./23.9702).^2)+129.974*exp(-log(2)*(((x)-377.048)./18.7766).^2)+48.5623*exp(-log(2)*(((x)-1312.84)./43.6741).^2)+157.325*exp(-log(2)*(((x)-1441.94)./132.55).^2)+50.993*exp(-log(2)*(((x)-1464.75)./2.30867).^2)
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1177</width>
+    <height>851</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="3" column="0">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <spacer name="horizontalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="button_cancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="button_ok">
+       <property name="text">
+        <string>OK</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButton_export">
+       <property name="text">
+        <string>Export...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <layout class="QGridLayout" name="mainLayout"/>
+   </item>
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="title">
+        <string>Points</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0">
+           <widget class="QComboBox" name="comboBox_selectedPoint">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>0</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>top left</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>top right</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>bottom right</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>bottom left</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="button_check">
+            <property name="text">
+             <string>Check</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <layout class="QGridLayout" name="gridLayout_8">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="button_addPoint">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>25</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>30</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../bin/icons/add.png</normaloff>../../bin/icons/add.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="button_editPoint">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>35</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../bin/icons/edit.png</normaloff>../../bin/icons/edit.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QPushButton" name="button_delPoint">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>35</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../bin/icons/trash.png</normaloff>../../bin/icons/trash.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="button_reinit">
+            <property name="text">
+             <string>Reset</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="button_test">
+            <property name="text">
+             <string>Test</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Datas</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="1" column="4">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>dataset B name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="6">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>representation:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="5">
+           <widget class="QComboBox" name="combo_dsB">
+            <item>
+             <property name="text">
+              <string>dataset 1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>dataset 2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>dataset 3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>dataset 4</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="7">
+           <widget class="QComboBox" name="combo_dsB_repr">
+            <item>
+             <property name="text">
+              <string>PC1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PC2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PC3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>raw RGB</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="6">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>representation:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="7">
+           <widget class="QComboBox" name="combo_dsA_repr">
+            <item>
+             <property name="text">
+              <string>PC1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PC2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PC3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PC4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PC5</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="3" column="5" colspan="3">
+           <widget class="QSlider" name="slider_alpha">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="value">
+             <number>150</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>dataset A name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QPushButton" name="button_overlap">
+            <property name="text">
+             <string>overlap</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QComboBox" name="combo_dsA">
+            <item>
+             <property name="text">
+              <string>dataset 1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>dataset 2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>dataset 3</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="4" colspan="3">
+           <widget class="QLabel" name="label_matching">
+            <property name="text">
+             <string>dsA vs dsB matching doesn't exists yet.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="7">
+           <widget class="QPushButton" name="button_validate_matching">
+            <property name="text">
+             <string>Validate</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

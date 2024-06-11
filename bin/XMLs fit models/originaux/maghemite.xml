@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> maghemite </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\maghemite.dat</path>
+		</model>
+	</exp_models>
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>0-1000</xlim>
+		<components>
+			<component>
+				<name> ligne de base </name>
+				<parameters> </parameters>
+				<equation>(x inf 857.9).*(2957.71 + 0.200831 *x) + ~(x inf 857.9).*(1092.79 + 2.37464*x)</equation>
+			</component>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>	798.321*exp(-log(2)*((x-252.206)/44.8961).^2)+2873.1*exp(-log(2)*((x-400.121)/93.342).^2)+-1148.01*exp(-log(2)*((x-422.197)/28.2393).^2)+-1.99268e+040*exp(-log(2)*((x--6.36026e+036)/2.29608e+034).^2)+343.162*exp(-log(2)*((x-198.125)/-14.6735).^2)+595.271*exp(-log(2)*((x-121.172)/56.6729).^2)+375.354*exp(-log(2)*((x-513.699)/9.98778).^2)+4391.57*exp(-log(2)*((x-603.472)/-23.1317).^2)+2611.6*exp(-log(2)*((x-727.949)/18.2899).^2)+772.829*exp(-log(2)*((x--2697.96)/60.4873).^2)+3176.71*exp(-log(2)*((x-679.513)/47.1586).^2)+-4978.94*exp(-log(2)*((x-605.587)/-24.4686).^2)+932.094*exp(-log(2)*((x-1225.44)/79.8259).^2)+1559.63*exp(-log(2)*((x-599.446)/-111.272).^2)+-307.194*exp(-log(2)*((x-1225.35)/-35.9536).^2)+-613.065*exp(-log(2)*((x-1507.45)/-25.6678).^2)+-1392.81*exp(-log(2)*((x-386.152)/-183.537).^2)+2173.73*exp(-log(2)*((x-1406.89)/83.4278).^2)+-2.37788e+007*exp(-log(2)*((x-6065.87)/-1076.26).^2)+376.311*exp(-log(2)*((x-1045.15)/8.99938).^2)+-79.7502*exp(-log(2)*((x-915.739)/-20.4267).^2)
+ </equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

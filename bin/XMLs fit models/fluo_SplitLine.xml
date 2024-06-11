@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> fluo </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\fluo.dat</path>
+		</model>
+	</exp_models>
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>200-820</xlim>
+
+		<components>
+ 		<!--	<component>
+				<name> Line </name>
+				<parameters> a=0-7, b=1-4000</parameters>
+				<equation>a*x + b</equation>
+			</component> -->
+ 			<component>
+				<name> SplitLine </name>
+				<parameters> height=1-20000, a1=0-30, a2=0-30</parameters>
+				<equation>(x inf 455) .* ( (height-a1*455) + a1*x)  +  (x sup= 455) .* ((height-a2*455) + a2*x)</equation>
+			</component> 
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

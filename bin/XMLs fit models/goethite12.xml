@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> goethite 12 </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\goethite 12.dat</path>
+		</model>
+	</exp_models>
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>0-1000</xlim>
+		<components>
+			<component>
+				<name> ligne de base </name>
+				<parameters> </parameters>
+				<equation>(x inf 786.067).* (2405.01 + 0.979599 * (x)) + (x sup= 786.067).*(1360.03 + 2.30897 * (x))</equation>
+			</component>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>	
+						1074.37*exp(-log(2)*(((x)-1615.82)./-34.309).^2)+505.521*exp(-log(2)*(((x)-1467.56)./25.5309).^2)+1.98446e+035*exp(-log(2)*(((x)-6.05839e+029)./2.49853e+027).^2)+1394.63*exp(-log(2)*(((x)-1001.26)./11.6966).^2)+3778.62./(1+(((x)-686.568)./16.6465).^2)+3371.48./(1+(((x)-552.46)./-16.8167).^2)+2825.47./(1+(((x)-481.088)./-15.1506).^2)+11530.1./(1+(((x)-301.073)./4.98996).^2)+2591.05./(1+(((x)-245.637)./8.09623).^2)+551.444./(1+(((x)-166.642)./2.11876).^2)+442.344*exp(-log(2)*(((x)-206.806)./-6.53818).^2)+525.728*exp(-log(2)*(((x)-986.882)./51.0772).^2)+1411.37./(1+(((x)-1115.16)./28.4663).^2)+( x inf 1305.58).*(3184.34.*exp(-log(2)*((x-1305.58)./89.571).^2)) + (x sup=1305.58).*(3184.34*exp(-log(2)*((x-1305.58)./52.1382).^2))+1345.7*exp(-log(2)*(((x)-646.22)./47.4928).^2)+20944./(1+(((x)-387.186)./9.87966).^2)+3938.04*exp(-log(2)*(((x)-400.869)./3.94576).^2)+4629.91./(1+(((x)-415.892)./14.0048).^2)
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

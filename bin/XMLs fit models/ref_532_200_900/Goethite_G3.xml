@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> Goethite_G3 </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>c:\none</path>
+		</model>
+	</exp_models>
+
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>0-1000</xlim>
+		<components>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>
+				110.248*exp(-0.0183282*(x-353.619).^2)+1606.54*exp(-0.00645949*(x-302.981).^2)+17373.3*exp(-0.000325991*(x-652.329).^2)+4243.68*exp(-0.00012724*(x-202.136).^2)+3775.82*exp(-5.05437e-005*(x-384.94).^2)+772.434*exp(-0.00247278*(x-482.291).^2)+775.418*exp(-0.0011434*(x-530.649).^2)-15031.2*exp(-0.00039922*(x-650.381).^2)+4566.79*exp(-0.00162175*(x-393.502).^2)+1423.14*exp(-0.00964752*(x-247.863).^2)-6663.6+8.43092*x+2114.06/(1+0.0365033*(x-297.939).^2)+1178.43*exp(-0.00737917*(x-395.7).^2)+809.842*exp(-0.00302219*(x-564.181).^2)
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

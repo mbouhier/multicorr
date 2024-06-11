@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> Ferrihydrite_FH2LL </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>c:\none</path>
+		</model>
+	</exp_models>
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>0-1000</xlim>
+		<components>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>	
+					228.586*exp(-0.000995887*(x-572.488).^2)-152.806+0.695782*x+114.63*exp(-0.0625634*(x-780.016).^2)+290.11*exp(-0.000226424*(x-355.83).^2)+405.551*exp(-0.000932563*(x-508.869).^2)+1590.31*exp(-0.000331921*(x-672.525).^2)-716.17*exp(-0.0000265817*(x-672.224).^2)+1709.96*exp(-0.000723731*(x-723.492).^2)
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

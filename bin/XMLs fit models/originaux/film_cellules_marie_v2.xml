@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> film cellules Marie </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\film-sur-metal_30s.dat</path>
+		</model>
+	</exp_models>
+
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>200-815</xlim>
+		<components>
+			<component>
+				<name> pic vers 805 </name>
+				<parameters> x0=805-810</parameters>
+				<equation>	
+						733.455./(1+(((x)-x0)./2.75754).^2)
+				</equation>
+			</component>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>	
+						449.598./(1+(((x)-396.206)./3.64942).^2)+245.053./(1+(((x)-635.461)./26.8267).^2)+-157.894./(1+(((x)-343.752)./-27.7991).^2)+229.321./(1+(((x)-765.593)./6.72038).^2)+54.5737./(1+(((x)-781.918)./6.11034).^2)+225.504*exp(-log(2)*(((x)-536.925)./103.681).^2)+60.0981*exp(-log(2)*(((x)-526.644)./4.86688).^2)+1876.2*exp(-log(2)*(((x)-212.077)./222.01).^2)+-2022.01 + 3.29263 * (x)+-26.3182*exp(-log(2)*(((x)-282.038)./-10.222).^2)+74.0093*exp(-log(2)*(((x)-454.926)./7.8634).^2)+33.6828*exp(-log(2)*(((x)-420.504)./4.93898).^2)+147.16*exp(-log(2)*(((x)-628.27)./4.53269).^2)+40.3423*exp(-log(2)*(((x)-679.124)./7.0866).^2)+41.0039*exp(-log(2)*(((x)-693.663)./5.46794).^2)+236.173*exp(-log(2)*(((x)-810.858)./5.30802).^2)
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

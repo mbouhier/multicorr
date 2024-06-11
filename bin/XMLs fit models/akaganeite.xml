@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> akaganeite </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\akaganeite.dat</path>
+		</model>
+	</exp_models>
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>0-1000</xlim>
+		<components>
+			<component>
+				<name> ligne de base </name>
+				<parameters> </parameters>
+				<equation>(x inf 1031).*(2695.3 + 2.39059 * (x)) +(x sup= 1031).* (-247.409 + 5.24482 * (x))</equation>
+			</component>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>	
+						1257.76./(1+(((x)-141.063)./8.20809).^2)+7727.23./(1+(((x)-723.189)./19.6558).^2)+3029.63*exp(-log(2)*(((x)-334.017)./17.9863).^2)+5573.76*exp(-log(2)*(((x)-400.278)./41.9198).^2)+2368.14*exp(-log(2)*(((x)-495.138)./24.345).^2)+2846.41*exp(-log(2)*(((x)-538.8)./19.568).^2)+1044.19*exp(-log(2)*(((x)-609.797)./18.2645).^2)+2675.19*exp(-log(2)*(((x)-681.305)./32.5006).^2)+216.23*exp(-log(2)*(((x)-1196.45)./139.578).^2)+512.578*exp(-log(2)*(((x)-1150.6)./30.7763).^2)+15730.6*exp(-log(2)*(((x)-1383.03)./49.9805).^2)+-14207.6*exp(-log(2)*(((x)-1382.05)./-47.1351).^2)+1097.37*exp(-log(2)*(((x)-388.948)./8.57754).^2)+6780.41*exp(-log(2)*(((x)-304.482)./18.1429).^2)+1070.02*exp(-log(2)*(((x)-261.282)./17.4215).^2)+729.468*exp(-log(2)*(((x)-916.208)./19.0696).^2)+345.094*exp(-log(2)*(((x)-855.917)./36.1143).^2)+253.499*exp(-log(2)*(((x)-1596.79)./30.8208).^2)
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

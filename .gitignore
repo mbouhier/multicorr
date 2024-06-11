@@ -1,0 +1,8 @@
+__pycache__
+*.pyc
+Thumbs.db
+tempWireData*.h5
+projectFile*.h5
+tmpWorkFile*.h5
+log_*.txt
+*.wdf

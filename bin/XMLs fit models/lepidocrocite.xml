@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> lepidocrocite </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\lepidocrocite.dat</path>
+		</model>
+	</exp_models>
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>0-1000</xlim>
+		<components>
+			<component>
+				<name> ligne de base </name>
+				<parameters> </parameters>
+				<equation>(x inf 875.709).* (1882 + -0.615999 * (x)) + (x sup= 875.709).*(762.997 + 0.661822 * (x))</equation>
+			</component>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>	
+					4525.16./(1+(((x)-1296.48)./49.8744).^2)+7.27624e+038*exp(-log(2)*(((x)-3.5247e+034)./8.75355e+032).^2)+1135.99./(1+(((x)-533.592)./30.7906).^2)+1400.13./(1+(((x)-653.205)./52.271).^2)+1788.84./(1+(((x)-380.15)./12.6072).^2)+968.675./(1+(((x)-348.223)./8.57287).^2)+606.448./(1+(((x)-309.719)./18.7925).^2)+10903.4./(1+(((x)-252.688)./4.66875).^2)+1122.74./(1+(((x)-219.55)./4.66671).^2)+432.556./(1+(((x)-144.873)./-4.23482).^2)+611.749./(1+(((x)-1067.12)./127.953).^2)+225.613*exp(-log(2)*(((x)-765.317)./53.7502).^2)+300.792*exp(-log(2)*(((x)-1438.55)./42.3072).^2)+555.332*exp(-log(2)*(((x)-235.963)./11.4946).^2)+1344.83*exp(-log(2)*(((x)-529.688)./8.15899).^2)+442.551*exp(-log(2)*(((x)-652.299)./14.0544).^2)+254.986*exp(-log(2)*(((x)-1054.35)./21.9524).^2)+-454.576*exp(-log(2)*(((x)-1284.71)./23.7864).^2)	
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

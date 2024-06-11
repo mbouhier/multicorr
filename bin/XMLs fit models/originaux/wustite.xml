@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> wustite </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\wustite.dat</path>
+		</model>
+	</exp_models>
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>0-1000</xlim>
+		<components>
+			<component>
+				<name> ligne de base </name>
+				<parameters> </parameters>
+				<equation>1430.45 + -3.52596*(x) + 0.00592766*(x).^2 + -5.58133e-006*(x).^3 + 2.65927e-009*(x).^4 + -4.90951e-013*(x).^5+810.489./(1+(((x)-654.306)./25.9613).^2)</equation>
+			</component>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>	
+						66.5193*exp(-log(2)*(((x)-466.393)./48.6227).^2)+43.9898*exp(-log(2)*(((x)-1335.09)./63.9524).^2)+29.3946*exp(-log(2)*(((x)-220.961)./-5.75853).^2)+-118.907*exp(-log(2)*(((x)-808.482)./-151.714).^2)+22.2196*exp(-log(2)*(((x)-1023.94)./60.047).^2)+86.0401*exp(-log(2)*(((x)-837.763)./106.532).^2)+15.8007*exp(-log(2)*(((x)-1591.51)./-12.0225).^2)
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>

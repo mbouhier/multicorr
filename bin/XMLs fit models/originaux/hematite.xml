@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<modelfit>
+
+	<name> hematite </name>
+	
+	<!-- =================== Modèle de réference ========================== -->
+	<exp_models>
+		<model>
+			<power>0.5</power>
+			<exposure>30</exposure>
+			<path>fichiers dat\hematite.dat</path>
+		</model>
+	</exp_models>
+	
+	<!-- =================== Modèle mathematique ========================== -->
+	<math_model>
+		<xlim>0-1000</xlim>
+		<components>
+			<component>
+				<name> ligne de base </name>
+				<parameters> </parameters>
+				<equation>
+					(x inf 891.557).*(360.842 + 0.73142 * (x)) + (x sup= 891.557).*(-833.002 + 2.07047 * (x))
+				</equation>
+			</component>
+			<component>
+				<name> reste </name>
+				<parameters> </parameters>
+				<equation>
+					1418.66./(1+(((x)-301.318)./10.3403).^2)+8172.69./(1+(((x)-1329.6)./-34.2593).^2)+2556.27*exp(-log(2)*(((x)-228.275)./4.02087).^2)+841.566*exp(-log(2)*(((x)-248.645)./5.71116).^2)+1295.76*exp(-log(2)*(((x)-293.871)./4.08551).^2)+1329.96*exp(-log(2)*(((x)-417.259)./10.6202).^2)+338.06*exp(-log(2)*(((x)-505.168)./13.5066).^2)+416.477*exp(-log(2)*(((x)-621.063)./12.9791).^2)+789.602*exp(-log(2)*(((x)-670.1)./23.7163).^2)+194.516*exp(-log(2)*(((x)-830.968)./-18.7159).^2)+431.246*exp(-log(2)*(((x)-1060.18)./19.7333).^2)+432.167*exp(-log(2)*(((x)-1108.75)./28.5249).^2)+307.734*exp(-log(2)*(((x)-1243.71)./51.675).^2)+166.603*exp(-log(2)*(((x)-1513.67)./-29.7813).^2)+108.585*exp(-log(2)*(((x)-386.683)./10.6112).^2)
+				</equation>
+			</component>
+		</components>
+	</math_model>
+	
+	<!-- ========================= Contraintes ========================== -->
+	<constraints>
+		<min_concentration>10</min_concentration>
+		<max_concentration>100</max_concentration>
+	</constraints>
+</modelfit>
