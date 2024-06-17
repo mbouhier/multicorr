@@ -122,11 +122,11 @@ class MCBusinessLogic_representations(object):
 
         r = self.getRepresentation(ds_name, repr_family, repr_name)
 
-        print("ds_name", ds_name)
-        print("repr_family",repr_family)
-        print("repr_name",repr_name)
-        print("repr.keys():")
-        print(r.keys())
+        # print("ds_name", ds_name)
+        # print("repr_family",repr_family)
+        # print("repr_name",repr_name)
+        # print("repr.keys():")
+        # print(r.keys())
 
         if not r:
             raise RuntimeError("Can't get representation image!")

@@ -158,7 +158,7 @@ class MCPresentationController_main(QObject):
                     ui_object.setText(str(value))
 
                 elif isinstance(ui_object, QtWidgets.QSpinBox):
-                    ui_object.setValue(value)
+                    ui_object.setValue(int(value))
 
                 elif isinstance(ui_object, QtWidgets.QComboBox):
 

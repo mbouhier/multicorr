@@ -65,7 +65,7 @@ class Filter_noisePCA(DataFilter):
         d.horizontalSlider_sampleIndex.setMaximum(len(X)-1)
         d.horizontalSlider_sampleIndex.setValue(0)
 
-        f1 = lambda v:d.spinbox_sampleIndex.setValue(v)
+        f1 = lambda v:d.spinbox_sampleIndex.setValue(int(v))
         d.horizontalSlider_sampleIndex.valueChanged.connect(f1)
 
         # ======================================================================
@@ -279,7 +279,7 @@ class Filter_noisePCA(DataFilter):
 
         pb = self.guiRefsContainer["progress_bar"]
 
-        if i >= 0: pb.setValue(i)
+        if i >= 0: pb.setValue(int(i))
         else:      pb.reset()
 
 

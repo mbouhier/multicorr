@@ -72,20 +72,20 @@ class Filter_ASLSBaseline(DataFilter):
         #p en float
         d.spinbox_p.setRange(self.p_min, self.p_max)
         d.spinbox_p.setValue(self.p_default)
-        d.horizontalSlider_p.setMinimum(self.p_min*1/self.p_min) #transforme en int
-        d.horizontalSlider_p.setMaximum(self.p_max*1/self.p_min)
-        d.horizontalSlider_p.setValue(self.p_default*1/self.p_min)
+        d.horizontalSlider_p.setMinimum(int(self.p_min/self.p_min)) #transforme en int
+        d.horizontalSlider_p.setMaximum(int(self.p_max/self.p_min))
+        d.horizontalSlider_p.setValue(int(self.p_default/self.p_min))
 
         d.spinbox_sampleIndex.setRange(0, len(X)-1)
         d.horizontalSlider_sampleIndex.setRange(0, len(X) - 1)
 
-        f1 = lambda v:d.spinbox_sampleIndex.setValue(v)
+        f1 = lambda v:d.spinbox_sampleIndex.setValue(int(v))
         d.horizontalSlider_sampleIndex.valueChanged.connect(f1)
 
-        f2 = lambda v:d.spinbox_lam.setValue(v)
+        f2 = lambda v:d.spinbox_lam.setValue(int(v))
         d.horizontalSlider_lam.valueChanged.connect(f2)
 
-        f3 = lambda v:d.spinbox_p.setValue(v*self.p_min) #on remet en float
+        f3 = lambda v:d.spinbox_p.setValue(int(v*self.p_min)) #on remet en float
         d.horizontalSlider_p.valueChanged.connect(f3)
 
         #======================================================================
@@ -220,7 +220,7 @@ class Filter_ASLSBaseline(DataFilter):
         d = self.guiRefsContainer["panel"]
 
         if i >= 0:
-            d.progressBar.setValue(i)
+            d.progressBar.setValue(int(i))
         else:
             d.progressBar.reset()
 

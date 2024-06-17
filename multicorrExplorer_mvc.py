@@ -36,8 +36,6 @@ from plotpy.tools import SelectPointTool, FreeFormTool
 #from guidata.qt import QtCore
 from PyQt5 import QtCore
 
-
-#from qwt.qt.QtGui import QFont
 from PyQt5.QtGui import QFont
 
 from PyQt5.QtCore import *
@@ -280,11 +278,11 @@ class ClusterExplorer(QtWidgets.QMainWindow):
             progressPopup = QtWidgets.QProgressDialog("Loading project file", "Stop", 0, 100, self)
             progressPopup.setWindowModality(QtCore.Qt.WindowModal)
 
-            progressPopup.setValue(progress)
+            progressPopup.setValue(int(progress))
             progressPopup.show()
             self._progress_popup = progressPopup
         else:
-            progressPopup.setValue(progress)
+            progressPopup.setValue(int(progress))
 
         if progress == -1:
             progressPopup.deleteLater()
@@ -766,7 +764,7 @@ class ClusterExplorer(QtWidgets.QMainWindow):
 
         z_order = tab.get("display", {}).get(selected_ds_name, {}).get("z_order", None)
 
-        p.slider_refsAlpha.setValue(opacity)
+        p.slider_refsAlpha.setValue(int(opacity))
 
     def getSelectedDatasetName_inMultiDatasetExplorer(self):
 

@@ -71,6 +71,7 @@ from renishawWiRE import WDFReader
 
 #pour retrocompatibilité, revoie du numpy array
 
+from wdf import Wdf
 
 
 def openWireData2(path, qt_mode = False):
@@ -111,6 +112,56 @@ def _delTmpFiles(directory, prefix):
                 
 
 def openWireDataHDF5(path, qt_mode = False):
+
+    try:
+        
+        wdf = Wdf()
+        wdf.open(path)
+
+        area = wdf.map_area
+
+        x_count = area.count.x 
+        y_count = area.count.y
+
+        x_step = area.step.x
+        y_step = area.step.y
+
+        x_start = area.start.x
+        y_start = area.start.y
+
+        nb_spectra = wdf.hdr.ncollected
+
+        print("dataset contains ", nb_spectra, " spectra")
+        print("xstep, ystep = ", x_step, y_step)
+        print("xcount, ycount = ", x_count, y_count)
+
+        #=============== Liste des coordonnées =============================
+        y_values = np.arange(y_start, y_start + y_count * y_step, y_step)
+        x_values = np.arange(x_start, x_start + x_count * x_step, x_step)
+
+        y_grid, x_grid = np.meshgrid(y_values, x_values, indexing='xy')
+        yx = np.stack((y_grid, x_grid), axis=-1).reshape(-1, 2)
+        #===================================================================
+
+        W = wdf.xlist()
+        X = np.array([wdf.spectrum(i) for i in range(nb_spectra)])
+
+        print("len(yx):",len(yx))
+        print("X.shape:",X.shape)
+        print("yx.shape:",yx.shape)
+        
+        wdf.close()
+
+    except Exception as e:
+        print("Error: Can't load '%s'"%(path,))
+        raise(e)
+    
+
+    return (X,W,yx)
+
+
+
+def openWireDataHDF5_with_py_wdf_reader(path, qt_mode = False):
     #wdf file opening based on https://github.com/alchem0x2A/py-wdf-reader/tree/master
 
     SINGLE_SPECTRUM = 1

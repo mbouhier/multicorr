@@ -168,6 +168,11 @@ class SpikesRemoval(object):
 
             x_min, x_max = roi["range_item"].get_range()
 
+            print("xmin:",x_min)
+            print("xmin:",x_max)
+
+            x_min, x_max = min(roi["range_item"].get_range()),max(roi["range_item"].get_range()),
+
             idxs_xmin = W >= x_min
             idxs_xmax = W <= x_max
 

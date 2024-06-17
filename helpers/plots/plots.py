@@ -1,7 +1,6 @@
 from plotpy.plot import PlotDialog
 from plotpy.plot import PlotWidget
 
-#from qwt.qt.QtGui import QFont, QColor, QBrush
 from PyQt5.QtGui import QFont, QColor, QBrush
 
 import qwt as Qwt
