@@ -85,7 +85,7 @@ class MCBusinessLogic_io(object):
             datasets_keys = [k for k in keys if k != "relationships"]
 
             print(("datasets_keys:", datasets_keys))
-            mc_logging.debug("loading datasets.py...")
+            mc_logging.debug("loading dataset_keys...")
 
             self.__hdf5_to_dict_recursive(f, datasetsContainer, datasets_keys, progress_callback)
 
@@ -126,7 +126,7 @@ class MCBusinessLogic_io(object):
         mc_logging.debug("save in", hdf5filename)
 
         try:
-            hdf5file = h5py.File(hdf5filename)
+            hdf5file = h5py.File(hdf5filename, 'a')
 
         except Exception as e:
             mc_logging.error("Can't create HDF5 file:")
@@ -169,7 +169,22 @@ class MCBusinessLogic_io(object):
 
                 # Si cette valeur de dictionnaire n'est pas elle meme un dictionnaire
 
-                if not isinstance(dict_formated[k], dict):
+                if(isinstance(dict_formated[k], h5py.Dataset)):
+                    # si type dataset hdf5
+
+                    mc_logging.debug("dataset type detected for", k)
+
+                    input_HDF5dataset = dict_formated[k]
+
+                    hdf5_formated.create_dataset(k, shape = input_HDF5dataset.shape, dtype = input_HDF5dataset.dtype)
+
+                    # enregistrement block par block
+                    fillByChunk(input_HDF5dataset, hdf5_formated[k], progress_callback)
+
+                    print("h5.h5o.copy done")
+
+                
+                if not isinstance(dict_formated[k], dict) and not isinstance(dict_formated[k], h5py.Dataset):
 
                     try:
 
@@ -201,26 +216,16 @@ class MCBusinessLogic_io(object):
                                 dict_formated[k] = [a.encode('utf8') for a in dict_formated[k]]
                                 # print("type dict_formated[k]2:", type(dict_formated[k]))
 
-                        #print("conversion4before'")
+
+                        # print("conversion4before'")
                         hdf5_formated[k] = dict_formated[k]
-                        #print("conversion4after'")
+                        # print("conversion4after'")
                         # print("type hdf5_formated[k]:", type(hdf5_formated[k]))
 
                     except RuntimeError as e:
 
                         # si type dataset hdf5
-                        # print "inside RuntimeError:",e
-
-                        mc_logging.debug("dataset type detected for", k)
-
-                        input_HDF5dataset = dict_formated[k]
-
-                        hdf5_formated.create_dataset(k, shape = input_HDF5dataset.shape, dtype = input_HDF5dataset.dtype)
-
-                        # enregistrement block par block
-                        fillByChunk(input_HDF5dataset, hdf5_formated[k], progress_callback)
-
-                        print("h5.h5o.copy done")
+                        print ("inside RuntimeError:",e)
 
 
                     except TypeError as e:
@@ -293,18 +298,22 @@ class MCBusinessLogic_io(object):
 
                     if k in keys_to_convert_to_list:
                         # mc_logging.debug("converting '%s' to list" % (k,))
-                        # print hdf5_formated[k].value
+                        # print hdf5_formated[k].value depreciated
+                        #print hdf5_formated[k][()] new syntax
                         try:
-                            v = hdf5_formated[k].value.tolist()
+                            v = hdf5_formated[k][()].tolist()
+                            # print("=================")
+                            # print(v)
+                            # print(type(v))
                             v = helpers.data.convertBytesToStr(v)
                             dict_formated[k] = v
 
                         except AttributeError as e:
                             mc_logging.error("exception:" + e)
 
-                            v = hdf5_formated[k].value
+                            v = hdf5_formated[k][()]
                             v = helpers.data.convertBytesToStr(v)
-                            dict_formated[k] = hdf5_formated[k].value
+                            dict_formated[k] = hdf5_formated[k][()]
 
 
 
@@ -312,7 +321,7 @@ class MCBusinessLogic_io(object):
 
                         if k not in keys_to_copy_as_hdf5_dataset:
 
-                            v = hdf5_formated[k].value
+                            v = hdf5_formated[k][()]
                             v = helpers.data.convertBytesToStr(v)
                             dict_formated[k] = v
 
@@ -326,7 +335,7 @@ class MCBusinessLogic_io(object):
                             dict_formated[k] = d
 
                             try:
-                                v = hdf5_formated[k].value
+                                v = hdf5_formated[k][()]
                                 v = helpers.data.convertBytesToStr(v)
                                 dict_formated[k][:] = v
 

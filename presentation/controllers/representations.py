@@ -763,7 +763,7 @@ class MCPresentationController_representations(QObject):
         # concatenation des deux listes pour conparer tout les elements d'un coup
         old_xydatas = list(imageItem.get_xdata() + imageItem.get_ydata())
 
-        if not np.all(old_xydatas == ds["x_range"] + ds["y_range"]):
+        if not np.all(old_xydatas == ds["x_range"].tolist() + ds["y_range"].tolist()):
             autoscale = True
 
         # contient la representation + d'eventuels images superposées

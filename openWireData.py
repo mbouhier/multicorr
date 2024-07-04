@@ -139,7 +139,7 @@ def openWireDataHDF5(path, qt_mode = False):
         y_values = np.arange(y_start, y_start + y_count * y_step, y_step)
         x_values = np.arange(x_start, x_start + x_count * x_step, x_step)
 
-        y_grid, x_grid = np.meshgrid(y_values, x_values, indexing='xy')
+        y_grid, x_grid = np.meshgrid(y_values, x_values, indexing='ij')
         yx = np.stack((y_grid, x_grid), axis=-1).reshape(-1, 2)
         #===================================================================
 

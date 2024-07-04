@@ -185,8 +185,8 @@ class InteractiveHAC(QtWidgets.QMainWindow):
     def _getBackgroundImage(self):
         ds = self.ds
 
-        height = ds["height"].value
-        width  = ds["width"].value
+        height = ds["height"][()]#.value
+        width  = ds["width"][()]#.value
 
         image = np.zeros((height, width))
         lut = ds["idx_to_img_coo"]
@@ -207,8 +207,8 @@ class InteractiveHAC(QtWidgets.QMainWindow):
         ds = self.ds
 
         ax.clear()
-        height = ds["height"].value
-        width  = ds["width"].value
+        height = ds["height"][()]#.value
+        width  = ds["width"][()]#.value
 
         image = np.zeros((height, width , 4), dtype = np.uint8)
         lut   = ds["idx_to_img_coo"]

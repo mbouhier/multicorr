@@ -318,5 +318,5 @@ class DataFilters(QtWidgets.QMainWindow):
 
     def _updateProgressBar(self, i, pb_guiref):
 
-        if i >= 0: pb_guiref.setValue(i)
+        if i >= 0: pb_guiref.setValue(int(i))
         else:      pb_guiref.reset()

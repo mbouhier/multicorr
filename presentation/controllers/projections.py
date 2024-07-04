@@ -14,9 +14,6 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtGui import QPolygonF
 
 import plotpy
-# from guiqwt.builder import make
-# from guiqwt.plot import CurveDialog
-# from guiqwt.tools import SelectPointTool, FreeFormTool
 
 from plotpy.plot import PlotDialog, PlotOptions
 from plotpy.builder import make

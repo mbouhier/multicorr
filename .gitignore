@@ -6,3 +6,4 @@ projectFile*.h5
 tmpWorkFile*.h5
 log_*.txt
 *.wdf
+bin/example_files
