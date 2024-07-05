@@ -131,7 +131,7 @@ class DatasetsImporter(object):
         elif ext == "raw":
             return self.loadRawMEB(path)
 
-        elif ext == "wxd" or ext == "wdf":
+        elif  ext == "wdf":
             return self.loadRamanWire(path, qt_mode)
 
         elif ext =="csv":
@@ -145,6 +145,10 @@ class DatasetsImporter(object):
 
         elif ext =="nxs":
             return self.loadNxs(path)
+        
+        else:
+            mc_logging.info('Sorry file with extension "%s" unsupported' % (path,))
+            return False
 
 
     def  loadNxs(self, path, experiment_name = ''):
@@ -1043,7 +1047,7 @@ class DatasetsImporter(object):
 
     def loadRamanWire(self, path, qt_mode = True):
         """
-        Load Renishaw Wire .wxd and wxf
+        Load Renishaw Wire and wdf
         """
         spectrums, W, xys = openWireDataHDF5(path, qt_mode)
 
@@ -1057,7 +1061,6 @@ class DatasetsImporter(object):
         if len(spectrums) > 1: #cas de toutes les carto, mais au cas ou...
 
             #cas des pointés raman x0=x1
-
             indexes_layout = ''
 
             if xys[0,0] == xys[1,0]:

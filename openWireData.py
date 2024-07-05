@@ -130,16 +130,26 @@ def openWireDataHDF5(path, qt_mode = False):
         y_start = area.start.y
 
         nb_spectra = wdf.hdr.ncollected
+        scantype = wdf.hdr.scantype
 
         print("dataset contains ", nb_spectra, " spectra")
         print("xstep, ystep = ", x_step, y_step)
         print("xcount, ycount = ", x_count, y_count)
+        print("scantype", wdf.hdr.scantype)
+        print("type", wdf.hdr.type)
+        
 
         #=============== Liste des coordonnées =============================
         y_values = np.arange(y_start, y_start + y_count * y_step, y_step)
         x_values = np.arange(x_start, x_start + x_count * x_step, x_step)
 
-        y_grid, x_grid = np.meshgrid(y_values, x_values, indexing='ij')
+        #TODO: expliquer les scantype
+        indexing='xy'
+        if(scantype==7):      indexing='ij' #mapping
+        elif(scantype==6):    indexing='xy' #Streamline
+
+
+        y_grid, x_grid = np.meshgrid(y_values, x_values, indexing=indexing)
         yx = np.stack((y_grid, x_grid), axis=-1).reshape(-1, 2)
         #===================================================================
 
